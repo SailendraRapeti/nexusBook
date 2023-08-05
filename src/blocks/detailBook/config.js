@@ -1,0 +1,9 @@
+export const ReadNexus = "Read Nexus"
+export const PlayNexus = "Play Nexus"
+export const para = "Project Management for the Unofficial Proect Manager"
+export const para1 = "Kory Kogon, Suzette Blakemore, and James wood"
+export const funk ="A FanklinConvey Title"
+export const min ='18 min'
+export const key = "6 key ideas"
+export const book = 'About this Book'
+export const para2 = "Getting Along (2022) describes the importance of workplace interactions and their effecs on productivity and creaiviy."

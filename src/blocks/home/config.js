@@ -1,0 +1,8 @@
+export const good="Good Afternoon"
+export const cardText ="Get unlimited access to books in just "
+export const dollars = "$9.99"
+export const terms = "*Terms & conditions apply"
+export const trendd = "Trending"
+export const show = "Show all"
+export const fiveMinitus ="5-Minutes read"
+export const quikRevesion ="Quick Listen"

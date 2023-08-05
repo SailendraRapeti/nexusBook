@@ -1,0 +1,5 @@
+export const generText ="Select Genres"
+export const cardTextt ="Select the type of book you enjoy reading."
+export const showMore = "Show more"
+export const btn = "Continue"
+export const sleectText = "Select 3 or more genres to continue"
