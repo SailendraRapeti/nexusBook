@@ -1,11 +1,13 @@
-import { Image, ImageBackground, StatusBar, Text, View } from 'react-native'
+import { FlatList, Image, ImageBackground, StatusBar, Text, TouchableOpacity, View } from 'react-native'
 import React, { Component } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { styles } from './styles'
 import { detailBgImg } from '../loginAndSignup/assects'
-import { bookMark, bulb, clock, detailRead, detailhEAD, fut } from '../home/assects'
-import { PlayNexus, ReadNexus, book, funk, key, min, para, para1, para2 } from './config'
-
+import { bookMark, bulb, clock, detailRead, detailhEAD, frame, fut, play } from '../home/assects'
+import { PlayNexus, ReadNexus, book, chapter, final, funk, key, min, para, para1, para2 } from './config'
+import { ScrollView } from 'react-native-gesture-handler'
+const btn = [{id:1,text:"Personal growth"},{id:2,text:"Culture & Society"},{id:3,text:"Fiction"},{id:4,text:"Mind & Philosophy"}]
+const musicList = [{id:1,name:"Introducion",para:"Subscribe to unlock all 2 key ideas from book"},{id:2,name:"Introducion",para:"Subscribe to unlock all 2 key ideas from book"},{id:3,name:"Introducion",para:"Subscribe to unlock all 2 key ideas from book"}]
 export class Detail extends Component {
   render() {
     return (
@@ -31,7 +33,7 @@ export class Detail extends Component {
         </ImageBackground>
 
 
-        <View style={styles.container3}>
+        <ScrollView style={styles.container3}>
         <View style={styles.paraFlex}>
           <Text style={styles.para} >{para}</Text>
           <Image style={styles.bookMark} source={bookMark}/>
@@ -54,7 +56,38 @@ export class Detail extends Component {
             </View>
             <Text style={styles.bookText}>{book}</Text>
             <Text style={styles.paraText}>{para2}</Text>
-</View>
+
+            <FlatList data={btn} numColumns={2}  renderItem={({item}:any)=>
+        <View>
+           <View style={styles.trendsCard}>
+     
+              <TouchableOpacity>
+            
+                <Text style={styles.btnText}>{item.text}</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        
+        } />
+        <Text style={styles.paraa}>{chapter}</Text>
+        <FlatList data={musicList} renderItem={({item}:any)=>
+        <View style={styles.songsList}>
+          <Text style={styles.titleStyle}>0{item.id}</Text>
+          <View>
+          <Text style={styles.titleStyle}>{item.name}</Text>
+          <Text style={styles.paraStyle}>{item.para}</Text>
+          </View>
+        
+          <Image style={styles.playimg} source={play} />
+        </View>
+      
+      
+      }/>
+      <Text>{final}</Text>
+
+      <Image source={frame}/>
+        
+</ScrollView>
       </SafeAreaView>
     )
   }

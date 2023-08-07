@@ -1,5 +1,14 @@
-
-import {Image, StatusBar, Text, View, FlatList, ScrollView,TouchableOpacity, Modal, Alert} from 'react-native';
+import {
+  Image,
+  StatusBar,
+  Text,
+  View,
+  FlatList,
+  ScrollView,
+  TouchableOpacity,
+  Modal,
+  Alert,
+} from 'react-native';
 import React, {Component} from 'react';
 import {styles} from './styles';
 import {
@@ -32,7 +41,7 @@ import {
   next,
 } from './assects';
 import {userIcon} from '../loginAndSignup/assects';
-// import { FlatList, ScrollView } from 'react-native-gesture-handler';
+
 import {horizontalScale, verticalScale} from '../../../Matrics';
 
 const songs = [
@@ -79,48 +88,36 @@ const songs = [
     id: '6',
   },
 ];
-const trendBtn=[
-  {id:1,
-  name:"Trending"},
-  {id:2,
-  name:"5-Minutes Read"},
-  {id:3,
-  name:"Quick Listen"}
-]
-interface Iprops{
-  navigation?:any
+const trendBtn = [
+  {id: 1, name: 'Trending'},
+  {id: 2, name: '5-Minutes Read'},
+  {id: 3, name: 'Quick Listen'},
+];
+interface Iprops {
+  navigation?: any;
 }
-export class Home extends Component <Iprops>{
+export class Home extends Component<Iprops> {
   state = {
-    activeId : trendBtn[0].id,
-    isShow:false,
-    filtData:[],
-    modalVisible:false
-  }
-onTrend=(id:number)=>{
-
- this.setState({activeId:id})
-
-}
-onShow=()=>{
-this.setState({isShow:!this.state.isShow})
-}
-onPoP=(id:number)=>{
-  
-  const filt = songs.filter((item:any) =>
-    item.id === id
-
-  )
-  this.setState({filtData:filt})
-}
-onModal=(item:any)=>{
-  this.props.navigation.navigate("Detail")
-  
-}
+    activeId: trendBtn[0].id,
+    isShow: false,
+    filtData: [],
+    modalVisible: false,
+  };
+  onTrend = (id: number) => {
+    this.setState({activeId: id});
+  };
+  onShow = () => {
+    this.setState({isShow: !this.state.isShow});
+  };
+  onPoP = (id: number) => {
+    const filt = songs.filter((item: any) => item.id === id);
+    this.setState({filtData: filt});
+  };
+  onModal = (item: any) => {
+    this.props.navigation.navigate('Detail');
+  };
   render() {
- 
-   const {isShow}=this.state
-
+    const {isShow} = this.state;
 
     return (
       <SafeAreaView style={styles.container}>
@@ -154,18 +151,51 @@ onModal=(item:any)=>{
               </View>
             )}
           />
-          <FlatList data={trendBtn} horizontal={true} renderItem={({item}:any)=>
-        <View>
-           <View style={[styles.trendsCard,{backgroundColor:item.id === this.state.activeId ? "#CDE7BE" : "#313333"}]}>
-     
-              <TouchableOpacity onPress={()=>this.onTrend(item.id)} style={styles.trendFlex}>
-                <Image style={[styles.trendIcon,{tintColor:item.id === this.state.activeId ?"#313333" : "#EAF4F4"}]} source={trend} />
-                <Text style={[styles.trendingText,{color:item.id === this.state.activeId ? "#313333" : "#EAF4F4"}]}>{item.name}</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        
-        } />
+          <FlatList
+            data={trendBtn}
+            horizontal={true}
+            renderItem={({item}: any) => (
+              <View>
+                <View
+                  style={[
+                    styles.trendsCard,
+                    {
+                      backgroundColor:
+                        item.id === this.state.activeId ? '#CDE7BE' : '#313333',
+                    },
+                  ]}>
+                  <TouchableOpacity
+                    onPress={() => this.onTrend(item.id)}
+                    style={styles.trendFlex}>
+                    <Image
+                      style={[
+                        styles.trendIcon,
+                        {
+                          tintColor:
+                            item.id === this.state.activeId
+                              ? '#313333'
+                              : '#EAF4F4',
+                        },
+                      ]}
+                      source={trend}
+                    />
+                    <Text
+                      style={[
+                        styles.trendingText,
+                        {
+                          color:
+                            item.id === this.state.activeId
+                              ? '#313333'
+                              : '#EAF4F4',
+                        },
+                      ]}>
+                      {item.name}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            )}
+          />
           {/* <ScrollView horizontal>
             <View style={styles.trendsCard}>
               <TouchableOpacity onPress={this.onTrend} style={styles.trendFlex}>
@@ -199,6 +229,8 @@ onModal=(item:any)=>{
         <Image style={styles.cardImg2}  source={creative} />
       </View>
     </View>
+
+    
     <View style={styles.cardFlex2}>
       <Text style={styles.terms}>{terms}</Text>
 
@@ -224,11 +256,11 @@ onModal=(item:any)=>{
           </View>
           <FlatList
             horizontal={!isShow}
-         numColumns={isShow ? 3 : 0}
+            numColumns={isShow ? 3 : 0}
             data={songs}
             key={`${isShow}`}
             renderItem={({item}: any) => (
-              <TouchableOpacity onPress={()=>this.onPoP(item.id)}>
+              <TouchableOpacity onPress={() => this.onPoP(item.id)}>
                 <View>
                   <Image
                     style={styles.trendImage}
@@ -248,7 +280,6 @@ onModal=(item:any)=>{
                       </View>
                     </View>
                   </View>
-              
                 </View>
               </TouchableOpacity>
             )}
@@ -328,9 +359,7 @@ onModal=(item:any)=>{
             )}
           />
 
-
-
-<View style={styles.trenddFlex}>
+          <View style={styles.trenddFlex}>
             <Text style={styles.trendhEAD}>{quikRevesion}</Text>
             <View style={styles.showFlex}>
               <Text style={styles.showAllText}>{show}</Text>
@@ -367,30 +396,31 @@ onModal=(item:any)=>{
             )}
           />
         </ScrollView>
-    <View>
-
-  
-      <FlatList
-      data={this.state.filtData}
-      renderItem={({item}:any)=>
-      <TouchableOpacity onPress={()=>this.onModal(item)} style={styles.musicCard}>
-      <View style={styles.smallFlex}>
-      <Image  style={styles.play1} source={{uri: `${item.artwork}`}}/>
-      <View>
-        <Text style={styles.textStyle}>{item.title}</Text>
-        <Text style={styles.textStyle1}>{item.artist}</Text>
-        </View> 
-      </View>
-      <View  style={styles.smallFlex}>
-        <Image style={styles.play} source={play}/>
-        <Image style={styles.play} source={next}/>
-      </View>
-
-     </TouchableOpacity>
-    
-    }
-      />
-       </View>  
+        <View>
+          <FlatList
+            data={this.state.filtData}
+            renderItem={({item}: any) => (
+              <TouchableOpacity
+                onPress={() => this.onModal(item)}
+                style={styles.musicCard}>
+                <View style={styles.smallFlex}>
+                  <Image
+                    style={styles.play1}
+                    source={{uri: `${item.artwork}`}}
+                  />
+                  <View>
+                    <Text style={styles.textStyle}>{item.title}</Text>
+                    <Text style={styles.textStyle1}>{item.artist}</Text>
+                  </View>
+                </View>
+                <View style={styles.smallFlex}>
+                  <Image style={styles.play} source={play} />
+                  <Image style={styles.play} source={next} />
+                </View>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
       </SafeAreaView>
     );
   }

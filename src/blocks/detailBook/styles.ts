@@ -62,6 +62,13 @@ export const styles = StyleSheet.create({
         fontFamily:popBold
 
     },
+    paraa:{
+        color:"#FFFFFF",
+        fontSize:verticalScale(20),
+        fontFamily:popBold,
+        marginTop:verticalScale(24)
+
+    },
     para1:{
         color:"#FFFFFF",
         fontSize:verticalScale(14),
@@ -108,6 +115,43 @@ export const styles = StyleSheet.create({
     paraText:{
         color:"#EAF4F4",
         fontSize:verticalScale(14)
+    },
+    trendsCard:{
+        paddingTop:verticalScale(12),
+        paddingBottom:verticalScale(12),
+        paddingRight:horizontalScale(16),
+        paddingLeft:horizontalScale(16),
+        borderWidth:verticalScale(1),
+        borderColor:"#313333",
+        borderRadius:verticalScale(20),
+        margin:verticalScale(4),
+        backgroundColor:"#313333",
+        marginTop:verticalScale(16)
+
+    },
+    btnText:{
+        color:"#EAF4F4",
+        fontSize:verticalScale(12)
+    },
+    songsList:{
+        display:"flex",
+        flexDirection:"row",
+        justifyContent:"space-between",
+        marginTop:verticalScale(16)
+    },
+    titleStyle:{
+        color:"#FFFFFF",
+        fontFamily:popBold,
+        fontSize:verticalScale(16)
+    },
+    paraStyle:{
+        color:"#EAF4F4",
+        fontSize:verticalScale(14)
+    },
+    playimg:{
+        height:verticalScale(32),
+        width:verticalScale(32),
+        alignSelf:'center'
     }
 
 })

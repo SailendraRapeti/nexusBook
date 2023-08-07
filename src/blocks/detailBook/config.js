@@ -7,3 +7,5 @@ export const min ='18 min'
 export const key = "6 key ideas"
 export const book = 'About this Book'
 export const para2 = "Getting Along (2022) describes the importance of workplace interactions and their effecs on productivity and creaiviy."
+export const chapter = "56 Chapters"
+export const final ="Final Summary"
